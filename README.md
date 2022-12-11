@@ -1,18 +1,36 @@
 ## Heuristic Machine Learning for Graph Data
+
 ### 1. data
+
 I  synthesized a set of toy network data. 
-One is a credit card transaction record (toy_fraud.csv): 
-     Schema      Meaning                      
- 0   event_id    transaction order             
- 1   from_id     transaction sender      
- 2   to_id       transaction receiver   
- 3   amt         transaction amount -> float
- 4   event_type  transaction type (pay/cashout/transfer/repay)    
- 5   from_type   sender type (acct/merchant)      
- 6   to_type     receiver type (acct/merchant) 
- 7   from_fraud  sender annoated as fraud before  -> binary
- 8   to_fraud    receiver annoated as fraud before -> bianry
- 9   txn_time    transaction time -> datetime64[ns]
- 10  isFraud     transaction annotaed as fraud -> binary    
+
+Credit card transaction record (toy_fraud.csv):                  
+"event_id" ->   transaction order             
+"from_id"  ->   transaction sender ID      
+"to_id" ->      transaction receiver ID  
+"amt" ->        transaction amount 
+"event_type" -> transaction type (pay/cashout/transfer/repay)    
+"from_type" ->  sender type (acct/merchant)      
+"to_type"  ->   receiver type (acct/merchant) 
+"from_fraud" -> sender annoated as fraud before
+"to_fraud" ->   receiver annoated as fraud before 
+"txn_time" ->   transaction time 
+"isFraud"  ->   transaction annotaed as fraud
  
- and the other is account attributes (toy_nodes.csv).
+Account attributes (toy_nodes.csv):
+"node_id" -> sender or receiver's ID
+"node_type" -> acct or merchant
+"node_fraud" -> sender or receiver's fraud histoy
+"overdue_last_1M" -> sender or reveiver's overdue counts in last one month
+"overdue_last_3M" -> sender or reveiver's overdue counts in last three months
+"risk_pref_invest" -> the preference of taking risk (scale = 1~10)
+
+### 2. algos
+
+I integrated three algos: 1) Personalised Page Rank 2) node2vec 3) DBSCAN
+
+### 3. executation & objective
+
+"heuristic_execute.ipynb" is for RISKY GROUPS DETECTION by first ranking (PPR) and then clustering (node2vec+DBSCAN)
+
+"toy_fraud.R" is for network visualization, trying QAP and Exponential Randaom Graph Model
