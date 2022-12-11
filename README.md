@@ -15,3 +15,5 @@ I integrated three algos: 1) Personalised Page Rank 2) node2vec 3) DBSCAN
 "heuristic_execute.ipynb" is for RISKY GROUPS DETECTION by first ranking (PPR) and then clustering (node2vec+DBSCAN)
 
 "toy_fraud.R" is for network visualization, trying QAP and Exponential Randaom Graph Model
+
+These two files can be run directly in your studio.
