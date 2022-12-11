@@ -1,35 +1,16 @@
 ## Heuristic Machine Learning for Graph Data
 
-### 1. data
+### 1. data & objective
 
-I  synthesized a set of toy network data. 
+I synthesized a set of toy fraud transactions data. The objective is to help risk control sector of a bank detecting fraud transactions OR account. Given transactions are naturally dyads and relational data, we may need graph related machine learning method to build the models.
 
-Credit card transaction record (toy_fraud.csv):                  
-"event_id" ->   transaction order             
-"from_id"  ->   transaction sender ID      
-"to_id" ->      transaction receiver ID  
-"amt" ->        transaction amount 
-"event_type" -> transaction type (pay/cashout/transfer/repay)    
-"from_type" ->  sender type (acct/merchant)      
-"to_type"  ->   receiver type (acct/merchant) 
-"from_fraud" -> sender annoated as fraud before
-"to_fraud" ->   receiver annoated as fraud before 
-"txn_time" ->   transaction time 
-"isFraud"  ->   transaction annotaed as fraud
- 
-Account attributes (toy_nodes.csv):
-"node_id" -> sender or receiver's ID
-"node_type" -> acct or merchant
-"node_fraud" -> sender or receiver's fraud histoy
-"overdue_last_1M" -> sender or reveiver's overdue counts in last one month
-"overdue_last_3M" -> sender or reveiver's overdue counts in last three months
-"risk_pref_invest" -> the preference of taking risk (scale = 1~10)
+Data schema explanation is stored in data/schema.txt.
 
 ### 2. algos
 
 I integrated three algos: 1) Personalised Page Rank 2) node2vec 3) DBSCAN
 
-### 3. executation & objective
+### 3. executation
 
 "heuristic_execute.ipynb" is for RISKY GROUPS DETECTION by first ranking (PPR) and then clustering (node2vec+DBSCAN)
 
