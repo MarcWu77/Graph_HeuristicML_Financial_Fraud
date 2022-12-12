@@ -17,4 +17,4 @@ Account attributes (toy_nodes.csv):
   "node_fraud" -> sender or receiver's fraud histoy
   "overdue_last_1M" -> sender or reveiver's overdue counts in last one month
   "overdue_last_3M" -> sender or reveiver's overdue counts in last three months
-  "risk_pref_invest" -> the preference of taking risk (scale = 1~10)
+  "risk_pref_invest" -> the preference of taking risky investment (scale = 1~10, evaluated by the bank)
