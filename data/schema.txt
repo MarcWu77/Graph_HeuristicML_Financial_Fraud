@@ -6,10 +6,10 @@ Credit card transaction record (toy_fraud.csv):
   "event_type" -> transaction type (pay/cashout/transfer/repay)    
   "from_type" ->  sender type (acct/merchant, only 2)      
   "to_type"  ->   receiver type(acct/merchant, only 2) 
-  "from_fraud" -> sender annoated as fraud before
-  "to_fraud" ->   receiver annoated as fraud before 
+  "from_fraud" -> sender annotated as fraud before
+  "to_fraud" ->   receiver annotated as fraud before 
   "txn_time" ->   transaction time 
-  "isFraud"  ->   transaction annotaed as fraud
+  "isFraud"  ->   transaction annotated as fraud
  
 Account attributes (toy_nodes.csv):
   "node_id" -> sender or receiver's ID
