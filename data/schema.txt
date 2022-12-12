@@ -7,7 +7,7 @@ Your Tasks
       where 1) account and merchant have different colors, 
             2) nodes size varies along with to their degree centrality, 
             3) edges width varies based on the transaction amount and 4) the network layout should be set as 'spring' style. 
-     Plus, you may need extrat efforts to beatify the final network.
+     Plus, you may need extrat efforts to beautify the final network.
   2. try using QAP and ERGM to predict the fraud transactions. Dig out potential factors that may influence the fraudulent behaviors.
 
 Data Schema Information
