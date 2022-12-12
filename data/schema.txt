@@ -1,20 +1,32 @@
-Credit card transaction record (toy_fraud.csv):                  
-  "event_id" ->   transaction order             
-  "from_id"  ->   transaction sender ID      
-  "to_id" ->      transaction receiver ID  
-  "amt" ->        transaction amount 
-  "event_type" -> transaction type (pay/cashout/transfer/repay)    
-  "from_type" ->  sender type (acct/merchant, only 2)      
-  "to_type"  ->   receiver type(acct/merchant, only 2) 
-  "from_fraud" -> sender annotated as fraud before
-  "to_fraud" ->   receiver annotated as fraud before 
-  "txn_time" ->   transaction time 
-  "isFraud"  ->   transaction annotated as fraud
- 
-Account attributes (toy_nodes.csv):
-  "node_id" -> sender or receiver's ID
-  "node_type" -> acct or merchant, only 2
-  "node_fraud" -> sender or receiver's fraud histoy
-  "overdue_last_1M" -> sender or reveiver's overdue counts in last one month
-  "overdue_last_3M" -> sender or reveiver's overdue counts in last three months
-  "risk_pref_invest" -> the preference of taking risky investment (scale = 1~10, evaluated by the bank)
+Scenario
+  I synthesized a set of toy fraud transactions data. For example, a typical "fradulent cash-out" goes like that accounts may pretend to consume in a certain merchant by credit card and then the merchant returns the money back to the account. Here, the account dishonestly obtains a batch of "dirty money".Sometimes, smarter customer may cooperate with others in a complex network. Thus, it is harder and harder to detect such fraud transaction if merely counting on human or risk experts. 
+  The bank, hence, calls for a half-automatical or automatical model to capture the fraudulent transactions OR accounts.
+  
+Your Tasks
+  1. help the bank visualize the directed weighted transaction network [edge list = 'from_id','to_id','amt'(weight)], 
+      where 1) account and merchant have different colors, 
+            2) nodes size varies along with to their degree centrality, 
+            3) edges width varies based on the transaction amount and 4) the network layout should be set as 'spring' style. 
+     Plus, you may need extrat efforts to beatify the final network.
+  2. try using QAP and ERGM to predict the fraud transactions. Dig out potential factors that may influence the fraudulent behaviors.
+
+Data Schema Information
+  1.Credit card transaction record (toy_fraud.csv):                  
+    "event_id" ->   transaction order             
+    "from_id"  ->   transaction sender ID      
+    "to_id" ->      transaction receiver ID  
+    "amt" ->        transaction amount 
+    "event_type" -> transaction type (pay/cashout/transfer/repay)    
+    "from_type" ->  sender type (acct/merchant, only 2)      
+    "to_type"  ->   receiver type(acct/merchant, only 2) 
+    "from_fraud" -> sender annotated as fraud before
+    "to_fraud" ->   receiver annotated as fraud before 
+    "txn_time" ->   transaction time 
+    "isFraud"  ->   transaction annotated as fraud
+  2.Account attributes (toy_nodes.csv):
+    "node_id" -> sender or receiver's ID
+    "node_type" -> acct or merchant, only 2
+    "node_fraud" -> sender or receiver aer annotated as "fraud" before
+    "overdue_last_1M" -> sender or reveiver's overdue (another kind of dishonest behavior) counts in last one month
+    "overdue_last_3M" -> sender or reveiver's overdue counts in last three months
+    "risk_pref_invest" -> the preference of taking risky investment (scale = 1~10, evaluated by the bank)
